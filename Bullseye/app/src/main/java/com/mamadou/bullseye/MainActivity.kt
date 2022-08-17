@@ -3,6 +3,7 @@ package com.mamadou.bullseye
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import com.mamadou.bullseye.databinding.ActivityMainBinding
@@ -12,12 +13,16 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private var sliderValue = 0
-    private var targetValue = Random.nextInt(1, 100)
+    private var targetValue = Random.nextInt(1,100)
+    private var totalScore = 0
+
+
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
@@ -26,8 +31,9 @@ class MainActivity : AppCompatActivity() {
         binding.targetTextView.text = targetValue.toString()
 
         binding.hitMeButton.setOnClickListener {
-            Log.i("Button Click Event", "you clicked the Hit Me Button")
             showResult()
+            totalScore += pointsForCurrentRound()
+            binding.gameScoreTextView?.text = totalScore.toString()
         }
 
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -55,14 +61,16 @@ class MainActivity : AppCompatActivity() {
         val dialogTitle = getString(R.string.result_dialog_title)
         val dialogMessage =
             getString(R.string.result_dialog_message, sliderValue, pointsForCurrentRound())
-//        val dialogMessage = "The slider's value is $sliderValue"
+//    val dialogMessage = "The slider's value is $sliderValue"
+
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle(dialogTitle)
         builder.setMessage(dialogMessage)
-        builder.setPositiveButton(R.string.hit_me_button_text) { dialog, _ ->
+        builder.setPositiveButton(R.string.result_dialog_button_text) { dialog, _ ->
             dialog.dismiss()
         }
+
 
         builder.create().show()
     }
