@@ -42,22 +42,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun pointsForCurrentRound(): Int {
-//        if something is true {
-//            then do this
-//        } else if something else is true {
-//            then do this instead
-//        } else {
-//            do something when neither of the above are true
-//        }
+//        Subtract target value from slider's value
+//        if the result is negative:
+//                multiply it by -1
         val maxScore = 100
-        var difference: Int
+        var difference = targetValue - sliderValue
 
-        if (sliderValue > targetValue) {
-            difference = sliderValue - targetValue
-        } else if (targetValue > sliderValue) {
-            difference = targetValue - sliderValue
-        } else {
-            difference = 0
+        if (difference < 0) {
+            difference *= -1
         }
         return maxScore - difference
     }
