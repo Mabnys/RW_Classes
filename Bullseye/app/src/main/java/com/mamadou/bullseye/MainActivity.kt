@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import com.mamadou.bullseye.databinding.ActivityMainBinding
+import kotlin.math.max
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -41,7 +42,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun pointsForCurrentRound(): Int {
-        return 999
+//        if something is true {
+//            then do this
+//        } else if something else is true {
+//            then do this instead
+//        } else {
+//            do something when neither of the above are true
+//        }
+        val maxScore = 100
+        var difference: Int
+
+        if (sliderValue > targetValue) {
+            difference = sliderValue - targetValue
+        } else if (targetValue > sliderValue) {
+            difference = targetValue - sliderValue
+        } else {
+            difference = 0
+        }
+        return maxScore - difference
     }
 
     private fun showResult() {
