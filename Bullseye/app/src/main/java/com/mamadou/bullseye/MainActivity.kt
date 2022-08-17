@@ -6,9 +6,12 @@ import android.util.Log
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import com.mamadou.bullseye.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     private var sliderValue = 0
+    private var targetValue = Random.nextInt(1,100)
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.targetTextView.text = targetValue.toString()
 
         binding.hitMeButton.setOnClickListener {
             Log.i("Button Click Event", "you clicked the Hit Me Button")
