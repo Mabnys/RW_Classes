@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
 import com.mamadou.bullseye.databinding.ActivityMainBinding
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.random.Random
 
@@ -42,15 +43,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun pointsForCurrentRound(): Int {
-//        Subtract target value from slider's value
-//        if the result is negative:
-//                multiply it by -1
-        val maxScore = 100
-        var difference = targetValue - sliderValue
+//        abs(targetValue - sliderValue)
 
-        if (difference < 0) {
-            difference *= -1
-        }
+        val maxScore = 100
+        val difference = abs(targetValue - sliderValue)
         return maxScore - difference
     }
 
