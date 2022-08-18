@@ -7,11 +7,13 @@ import android.util.Log
 import android.view.View
 import android.widget.SeekBar
 import androidx.appcompat.app.AlertDialog
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.mamadou.bullseye.databinding.ActivityMainBinding
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.random.Random
 
+@Suppress("UNREACHABLE_CODE")
 class MainActivity : AppCompatActivity() {
     private var sliderValue = 0
     private var targetValue = newTargetValue()
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
