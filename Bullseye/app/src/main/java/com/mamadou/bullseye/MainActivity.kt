@@ -48,19 +48,22 @@ class MainActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
 
         })
-
     }
+
+    // This is called a single expression function, which act like a variable
+    private fun differenceAmount() = abs(targetValue - sliderValue)
+
 
     private fun pointsForCurrentRound(): Int {
 //        abs(targetValue - sliderValue)
 
         val maxScore = 100
-        val difference = abs(targetValue - sliderValue)
+        val difference = differenceAmount()
         return maxScore - difference
     }
 
     private fun showResult() {
-        val dialogTitle = getString(R.string.result_dialog_title)
+        val dialogTitle = alertTitle()
         val dialogMessage =
             getString(R.string.result_dialog_message, sliderValue, pointsForCurrentRound())
 //    val dialogMessage = "The slider's value is $sliderValue"
@@ -80,5 +83,26 @@ class MainActivity : AppCompatActivity() {
         }
 
         builder.create().show()
+    }
+
+    private fun alertTitle(): String {
+        val difference = differenceAmount()
+
+        val title: String = when {
+            difference == 0 -> {
+                getString(R.string.alert_title_1)
+            }
+            difference < 5 -> {
+                getString(R.string.alert_title_2)
+            }
+            difference <= 10 -> {
+                getString(R.string.alert_title_3)
+            }
+            else -> {
+                getString(R.string.alert_title_4)
+            }
+        }
+
+        return title
     }
 }
