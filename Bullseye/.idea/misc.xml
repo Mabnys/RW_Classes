@@ -6,7 +6,8 @@
         <entry key="app/src/main/res/drawable/circular_button.xml" value="0.1875" />
         <entry key="app/src/main/res/drawable/info_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/refresh_24.xml" value="0.1885" />
-        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.20967741935483872" />
+        <entry key="app/src/main/res/drawable/seekbar_progress.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.18072289156626506" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28295288085937503" />
       </map>
     </option>
@@ -16,5 +17,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.28295288085937503" />
+      </ProjectState>
+    </option>
   </component>
 </project>
