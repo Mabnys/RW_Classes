@@ -1,5 +1,6 @@
 package com.mamadou.bullseye
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +12,6 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.random.Random
 
-@Suppress("UNREACHABLE_CODE")
 class MainActivity : AppCompatActivity() {
     private var sliderValue = 0
     private var targetValue = newTargetValue()
@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             startNewGame()
         }
 
+        binding.infoButton?.setOnClickListener {
+            navigateToAboutPage()
+        }
+
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 sliderValue = progress
@@ -51,6 +55,12 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    private fun navigateToAboutPage() {
+        val intent = Intent(this, AboutActivity::class.java)
+        startActivity(intent)
+    }
+
 
     // This is called a single expression function, which act like a variable
     private fun differenceAmount() = abs(targetValue - sliderValue)
@@ -64,14 +74,15 @@ class MainActivity : AppCompatActivity() {
         val maxScore = 100
         val difference = differenceAmount()
         return maxScore - difference
-        var bonus = 0
 
+        var bonus = 0
         if (difference == 0) {
             bonus = 100
         } else if (difference == 1) {
             bonus = 50
         }
         return maxScore - difference + bonus
+
     }
 
     private fun startNewGame() {
