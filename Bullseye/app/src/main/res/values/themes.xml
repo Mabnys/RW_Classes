@@ -10,7 +10,6 @@
         <!-- Customize your theme here. -->
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
-
     </style>
 
     <style name="Theme.Bullseye.NoActionBar.FullScreen" parent="@style/Theme.Bullseye">
@@ -31,5 +30,12 @@
 
     <style name="big_text">
         <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="about_bullseye_text">
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">15sp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
     </style>
 </resources>
