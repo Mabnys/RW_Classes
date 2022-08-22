@@ -13,7 +13,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.random.Random
 
-@Suppress("UNREACHABLE_CODE")
+@Suppress("UNREACHABLE_CODE", "UNNECESSARY_SAFE_CALL")
 class MainActivity : AppCompatActivity() {
     private var sliderValue = 0
     private var targetValue = newTargetValue()
