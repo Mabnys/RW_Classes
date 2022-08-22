@@ -24,4 +24,5 @@
     <string name="game_score_value_text">0</string>
     <string name="info_image">info image</string>
     <string name="start_over_image">start over image</string>
+    <string name="bg_image">bg image</string>
 </resources>
