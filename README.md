@@ -29,9 +29,9 @@ All Homeworks branches related to this repo are and will be merge with the devel
 - [x] Project has readme written in Markdown
 
 ### *- Nice to have (for Above and Beyond):*
-- [x] Handle orientation changes
+- [ ] Handle orientation changes
 - [x] App is warning free
-- [x] App has custom app icon, splash screen, and theme
+- [ ] App has custom app icon, splash screen, and theme
 - [x] Every commit has a detailed comment
 - [x] Student has uploaded their Github profile with profile photo and about section
 
